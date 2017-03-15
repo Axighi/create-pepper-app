@@ -1,8 +1,10 @@
 {
   "name": "create-pepper-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
-    "react", "naoqi", "pepper"
+    "react",
+    "naoqi",
+    "pepper"
   ],
   "description": "Create Pepper apps with no build configuration.",
   "repository": "Axighi/create-pepper-app",
