@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
 import { LOAD_PAGE } from './actions';
-import { hashHistory } from 'react-router';
 
 function globalReducer(state = {}, action) {
-  return state;
+  switch(action.type) {
+    case LOAD_PAGE:
+      return state;
+    default:
+      return state;
+  }
 }
 
 export default function createReducer() {
