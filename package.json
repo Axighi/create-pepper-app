@@ -18,6 +18,9 @@
     "lerna": "2.0.0-beta.38",
     "lerna-changelog": "^0.2.3",
     "lint-staged": "^3.3.1",
+    "ramda": "^0.23.0",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3",
     "prettier": "^0.21.0"
   },
   "lint-staged": {

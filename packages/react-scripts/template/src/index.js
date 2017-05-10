@@ -1,27 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route } from 'react-router-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
 
-import createReducer from './reducers';
-import Home from './routes/Home/index';
-// import Pepper from './lib/pepper';
+import "./index.css";
+import Home from "./routes/Home";
 
-// const pepper = new Pepper();
-// pepper.autoSubscribe('AXMService/dialog_tablet', res => console.log(res));
+import store from "./store";
+import { history } from "./store";
 
-const store = createStore(createReducer(), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// command center stat working!
+import "./dispatcher";
+
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    component: () => <Home />
+  }
+];
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Route exact path="/" component={Home} />
-    </Router>
+    <ConnectedRouter history={history}>
+      <div>
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.component}
+          />
+        ))}
+      </div>
+    </ConnectedRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
-export {
-  store
-};
+export { store };
