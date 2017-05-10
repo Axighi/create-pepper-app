@@ -1,31 +1,47 @@
-export const LISTEN = "listen";
-export function listen(payload) {
+export const LIST = "list";
+export function list(payload) {
   return {
-    type: LISTEN,
+    type: LIST,
     payload
   };
 }
 
-export const SPEAK = "speak";
-export function speak(payload) {
+export const TEXT = "text";
+export function text(payload) {
   return {
-    type: SPEAK,
+    type: TEXT,
     payload
   };
 }
 
-export const ANSWER = "answer";
-export function answer(payload) {
+export const SELECT = "select";
+export function select(payload) {
   return {
-    type: ANSWER,
+    type: SELECT,
     payload
   };
 }
 
-export const PROMPT = "prompt";
-export function prompt(payload) {
+export const FULLSCREEN_IMAGE = "fullscreen_image";
+export function fullscreenImage(payload) {
   return {
-    type: PROMPT,
+    type: FULLSCREEN_IMAGE,
+    payload
+  };
+}
+
+export const FULLSCREEN_SELECT = "fullscreen_select";
+export function fullscreenSelect(payload) {
+  return {
+    type: FULLSCREEN_SELECT,
+    payload
+  };
+}
+
+export const FULLSCREEN_MENU = "fullscreen_menu";
+export function fullscreenMenu(payload) {
+  return {
+    type: FULLSCREEN_MENU,
     payload
   };
 }

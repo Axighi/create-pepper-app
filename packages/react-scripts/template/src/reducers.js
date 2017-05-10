@@ -1,17 +1,52 @@
-import { combineReducers } from 'redux';
-import { LOAD_PAGE } from './actions';
+import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
 
-function globalReducer(state = {}, action) {
-  switch(action.type) {
-    case LOAD_PAGE:
-      return state;
-    default:
-      return state;
-  }
-}
+import { LISTEN, SPEAK, ANSWER, PROMPT } from "./actions";
+
+const textReducer = (state = {}, action) => {
+  if (action.type === TEXT)
+    return { ...state, content: action.payload.content };
+  return state;
+};
+
+const listReducer = (state = {}, action) => {
+  if (action.type === TEXT)
+    return { ...state, content: action.payload.content };
+  return state;
+};
+
+const selectReducer = (state = {}, action) => {
+  if (action.type === TEXT)
+    return { ...state, content: action.payload.content };
+  return state;
+};
+
+const fullscreenImageReducer = (state = {}, action) => {
+  if (action.type === TEXT)
+    return { ...state, content: action.payload.content };
+  return state;
+};
+
+const fullscreenMenuReducer = (state = {}, action) => {
+  if (action.type === TEXT)
+    return { ...state, content: action.payload.content };
+  return state;
+};
+
+const fullscreenListReducer = (state = {}, action) => {
+  if (action.type === TEXT)
+    return { ...state, content: action.payload.content };
+  return state;
+};
 
 export default function createReducer() {
   return combineReducers({
-    global: globalReducer,
-  })
+    router: routerReducer,
+    list: listReducer,
+    text: textReducer,
+    select: selectReducer,
+    fullscreenImage: fullscreenImageReducer,
+    fullscreenList: fullscreenListReducer,
+    fullscreenMenu: fullscreenMenuReducer
+  });
 }
