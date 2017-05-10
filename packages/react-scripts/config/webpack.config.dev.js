@@ -11,6 +11,7 @@
 'use strict';
 
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -70,8 +71,13 @@ module.exports = {
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
     filename: 'static/js/bundle.js',
+    // There are also additional JS chunk files if you use code splitting.
+    chunkFilename: 'static/js/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
     publicPath: publicPath,
+    // Point sourcemap entries to original disk location
+    devtoolModuleFilenameTemplate: info =>
+      path.relative(paths.appSrc, info.absoluteResourcePath),
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -79,7 +85,7 @@ module.exports = {
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
     // https://github.com/facebookincubator/create-react-app/issues/253
-    modules: ['node_modules'].concat(paths.nodePaths),
+    modules: ['node_modules', paths.appNodeModules].concat(paths.nodePaths),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
@@ -103,6 +109,7 @@ module.exports = {
   },
   // @remove-on-eject-end
   module: {
+    strictExportPresence: true,
     rules: [
       // Disable require.ensure as it's not a standard language feature.
       { parser: { requireEnsure: false } },
