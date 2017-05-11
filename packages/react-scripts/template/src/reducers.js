@@ -1,41 +1,42 @@
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 
-import { LISTEN, SPEAK, ANSWER, PROMPT } from "./actions";
+import {
+  TEXT,
+  LIST,
+  SELECT,
+  FULLSCREEN_IMAGE,
+  FULLSCREEN_SELECT,
+  FULLSCREEN_MENU
+} from "./actions";
 
 const textReducer = (state = {}, action) => {
-  if (action.type === TEXT)
-    return { ...state, content: action.payload.content };
+  if (action.type === TEXT) return { ...state, ...action.payload };
   return state;
 };
 
-const listReducer = (state = {}, action) => {
-  if (action.type === TEXT)
-    return { ...state, content: action.payload.content };
+const listReducer = (state = { items: [] }, action) => {
+  if (action.type === LIST) return { ...state, ...action.payload };
   return state;
 };
 
-const selectReducer = (state = {}, action) => {
-  if (action.type === TEXT)
-    return { ...state, content: action.payload.content };
+const selectReducer = (state = { items: [] }, action) => {
+  if (action.type === SELECT) return { ...state, ...action.payload };
   return state;
 };
 
 const fullscreenImageReducer = (state = {}, action) => {
-  if (action.type === TEXT)
-    return { ...state, content: action.payload.content };
+  if (action.type === FULLSCREEN_IMAGE) return { ...state, ...action.payload };
   return state;
 };
 
-const fullscreenMenuReducer = (state = {}, action) => {
-  if (action.type === TEXT)
-    return { ...state, content: action.payload.content };
+const fullscreenMenuReducer = (state = { items: [] }, action) => {
+  if (action.type === FULLSCREEN_MENU) return { ...state, ...action.payload };
   return state;
 };
 
-const fullscreenListReducer = (state = {}, action) => {
-  if (action.type === TEXT)
-    return { ...state, content: action.payload.content };
+const fullscreenSelectReducer = (state = { items: [] }, action) => {
+  if (action.type === FULLSCREEN_SELECT) return { ...state, ...action.payload };
   return state;
 };
 
@@ -46,7 +47,7 @@ export default function createReducer() {
     text: textReducer,
     select: selectReducer,
     fullscreenImage: fullscreenImageReducer,
-    fullscreenList: fullscreenListReducer,
+    fullscreenSelect: fullscreenSelectReducer,
     fullscreenMenu: fullscreenMenuReducer
   });
 }

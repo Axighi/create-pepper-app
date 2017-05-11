@@ -1,12 +1,10 @@
 const config = {
   development: {
-    API_PREFIX: 'http://dev...',
-    PEPPER_ID: 'pepper1',
+    websocket_server: "ws://192.168.0.135:9527/ws"
   },
   production: {
-    API_PREFIX: 'http://prod...',
-    PEPPER_ID: 'pepper1',
+    websocket_server: ""
   }
-}
+};
 
 export default config[process.env.NODE_ENV];
