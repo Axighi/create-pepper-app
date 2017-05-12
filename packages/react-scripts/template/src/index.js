@@ -15,6 +15,7 @@ import Select from "./routes/Select";
 import FullscreenImage from "./routes/FullscreenImage";
 import FullscreenSelect from "./routes/FullscreenSelect";
 import FullscreenMenu from "./routes/FullscreenMenu";
+import Weather from "./routes/Weather";
 
 // command center start working!
 import "./dispatcher";
@@ -48,6 +49,10 @@ const routes = [
   {
     path: "/fullscreen_menu",
     component: () => <FullscreenMenu />
+  },
+  {
+    path: "/weather",
+    component: () => <Weather />
   }
 ];
 

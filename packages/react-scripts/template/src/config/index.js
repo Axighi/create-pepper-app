@@ -3,7 +3,7 @@ const config = {
     websocket_server: "ws://192.168.0.135:9527/ws"
   },
   production: {
-    websocket_server: ""
+    websocket_server: "ws://192.168.0.135:9527/ws"
   }
 };
 

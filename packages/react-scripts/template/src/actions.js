@@ -45,3 +45,11 @@ export function fullscreenMenu(payload) {
     payload
   };
 }
+
+export const WEATHER = "weather";
+export function weather(payload) {
+  return {
+    type: WEATHER,
+    payload
+  };
+}

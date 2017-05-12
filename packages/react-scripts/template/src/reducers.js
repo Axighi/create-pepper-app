@@ -7,7 +7,8 @@ import {
   SELECT,
   FULLSCREEN_IMAGE,
   FULLSCREEN_SELECT,
-  FULLSCREEN_MENU
+  FULLSCREEN_MENU,
+  WEATHER
 } from "./actions";
 
 const textReducer = (state = {}, action) => {
@@ -40,6 +41,42 @@ const fullscreenSelectReducer = (state = { items: [] }, action) => {
   return state;
 };
 
+const weatherReducer = (
+  state = {
+    highlight: "2017-3-18",
+    days: [
+      {
+        date: "2017-3-17",
+        weather: "有雨",
+        temp_high: 12,
+        temp_low: 7
+      },
+      {
+        date: "2017-3-18",
+        weather: "雪",
+        temp_high: 22,
+        temp_low: 10
+      },
+      {
+        date: "2017-3-19",
+        weather: "霾",
+        temp_high: 7,
+        temp_low: -2
+      },
+      {
+        date: "2017-3-20",
+        weather: "沙尘暴",
+        temp_high: 14,
+        temp_low: 8
+      }
+    ]
+  },
+  action
+) => {
+  if (action.type === WEATHER) return { ...state, ...action.payload };
+  return state;
+};
+
 export default function createReducer() {
   return combineReducers({
     router: routerReducer,
@@ -48,6 +85,7 @@ export default function createReducer() {
     select: selectReducer,
     fullscreenImage: fullscreenImageReducer,
     fullscreenSelect: fullscreenSelectReducer,
-    fullscreenMenu: fullscreenMenuReducer
+    fullscreenMenu: fullscreenMenuReducer,
+    weather: weatherReducer
   });
 }
