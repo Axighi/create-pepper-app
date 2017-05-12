@@ -1,43 +1,50 @@
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 
-import {
-  TEXT,
-  LIST,
-  SELECT,
-  FULLSCREEN_IMAGE,
-  FULLSCREEN_SELECT,
-  FULLSCREEN_MENU,
-  WEATHER
-} from "./actions";
+import { actionTypes } from "./actions";
 
 const textReducer = (state = {}, action) => {
-  if (action.type === TEXT) return { ...state, ...action.payload };
+  if (action.type === actionTypes.TEXT) return { ...state, ...action.payload };
   return state;
 };
 
 const listReducer = (state = { items: [] }, action) => {
-  if (action.type === LIST) return { ...state, ...action.payload };
+  if (action.type === actionTypes.LIST) return { ...state, ...action.payload };
   return state;
 };
 
 const selectReducer = (state = { items: [] }, action) => {
-  if (action.type === SELECT) return { ...state, ...action.payload };
+  if (action.type === actionTypes.SELECT)
+    return { ...state, ...action.payload };
   return state;
 };
 
 const fullscreenImageReducer = (state = {}, action) => {
-  if (action.type === FULLSCREEN_IMAGE) return { ...state, ...action.payload };
+  if (action.type === actionTypes.FULLSCREEN_IMAGE)
+    return { ...state, ...action.payload };
   return state;
 };
 
 const fullscreenMenuReducer = (state = { items: [] }, action) => {
-  if (action.type === FULLSCREEN_MENU) return { ...state, ...action.payload };
+  if (action.type === actionTypes.FULLSCREEN_MENU)
+    return { ...state, ...action.payload };
   return state;
 };
 
 const fullscreenSelectReducer = (state = { items: [] }, action) => {
-  if (action.type === FULLSCREEN_SELECT) return { ...state, ...action.payload };
+  if (action.type === actionTypes.FULLSCREEN_SELECT)
+    return { ...state, ...action.payload };
+  return state;
+};
+
+const systemReducer = (
+  state = { battery: 100, wifi: 5, nui_status: "idle" },
+  action
+) => {
+  if (action.type === actionTypes.PHYSICAL_STATE)
+    return { ...state, ...action.payload };
+  if (action.type === actionTypes.NUI_STATUS)
+    return { ...state, ...action.payload };
   return state;
 };
 
@@ -73,7 +80,8 @@ const weatherReducer = (
   },
   action
 ) => {
-  if (action.type === WEATHER) return { ...state, ...action.payload };
+  if (action.type === actionTypes.WEATHER)
+    return { ...state, ...action.payload };
   return state;
 };
 
@@ -86,6 +94,7 @@ export default function createReducer() {
     fullscreenImage: fullscreenImageReducer,
     fullscreenSelect: fullscreenSelectReducer,
     fullscreenMenu: fullscreenMenuReducer,
-    weather: weatherReducer
+    weather: weatherReducer,
+    system: systemReducer
   });
 }

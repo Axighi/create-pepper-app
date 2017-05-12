@@ -17,3 +17,7 @@ export function requireAll(requireContext) {
   });
   return ret;
 }
+
+export const camelCased = str => {
+  if (str) return str.replace(/_([a-z])/g, g => g[1].toUpperCase());
+};

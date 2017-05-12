@@ -1,7 +1,7 @@
 import R from "ramda";
 
 import store, { history } from "./store";
-import * as actions from "./actions";
+import { actions } from "./actions";
 import config from "./config";
 
 const socket = new WebSocket(config.websocket_server);
