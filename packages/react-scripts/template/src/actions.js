@@ -13,18 +13,19 @@ const lowercaseActions = [
   "fullscreen_menu"
 ];
 
-function generateAction(lowercaseAction) {
-  return {
-    [camelCased(lowercaseAction)]: payload => ({
-      type: lowercaseAction,
-      payload
-    })
-  };
-}
+const generateAction = lowercaseAction => ({
+  [camelCased(lowercaseAction)]: payload => ({
+    type: lowercaseAction,
+    payload
+  })
+});
 
-const actionTypes = R.mergeAll(
-  lowercaseActions.map(e => ({ [e.toUpperCase()]: e }))
-);
-const actions = R.mergeAll(lowercaseActions.map(e => generateAction(e)));
+const generateActionType = lowercaseAction => ({
+  [lowercaseAction.toUpperCase()]: lowercaseAction
+});
+
+const toDict = R.pipe(R.map(R.__, lowercaseActions), R.mergeAll);
+const actions = toDict(generateAction);
+const actionTypes = toDict(generateActionType);
 
 export { actions, actionTypes };
