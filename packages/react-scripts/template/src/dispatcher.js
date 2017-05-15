@@ -31,9 +31,9 @@ const dispatchAction = ({ action, payload }) => {
   return;
 };
 
-socket.addEventListener("open", event => {
-  socket.send("Hello Server!");
-});
+// socket.addEventListener("open", event => {
+//   socket.send("Hello Server!");
+// });
 
 socket.addEventListener("message", event => {
   const data = JSON.parse(event.data);
