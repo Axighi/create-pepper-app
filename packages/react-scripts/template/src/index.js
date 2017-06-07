@@ -7,6 +7,7 @@ import { ConnectedRouter } from "react-router-redux";
 import "./index.css";
 import store from "./store";
 import { history } from "./store";
+import Layout from "./components/Layout";
 
 import Home from "./routes/Home";
 import Text from "./routes/Text";
@@ -16,6 +17,7 @@ import FullscreenImage from "./routes/FullscreenImage";
 import FullscreenSelect from "./routes/FullscreenSelect";
 import FullscreenMenu from "./routes/FullscreenMenu";
 import Weather from "./routes/Weather";
+import Navbar from "./components/Navbar";
 
 // command center start working!
 import "./dispatcher";
@@ -27,16 +29,20 @@ const routes = [
     component: () => <Home />
   },
   {
+    path: "/home",
+    component: () => <Home />
+  },
+  {
     path: "/text",
-    component: () => <Text />
+    component: () => <Layout><Text /></Layout>
   },
   {
     path: "/list",
-    component: () => <List />
+    component: () => <Layout><List /></Layout>
   },
   {
     path: "/select",
-    component: () => <Select />
+    component: () => <Layout><Select /></Layout>
   },
   {
     path: "/fullscreen_image",
@@ -60,18 +66,17 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
-        {routes.map((route, index) => (
+        {routes.map((route, index) =>
           <Route
             key={index}
             path={route.path}
             exact={route.exact}
             component={route.component}
           />
-        ))}
+        )}
+        <Navbar />
       </div>
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
-
-export { store };

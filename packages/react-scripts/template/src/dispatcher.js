@@ -2,9 +2,10 @@ import R from "ramda";
 
 import store, { history } from "./store";
 import { actions } from "./actions";
-import config from "./config";
+import { findGetParameter } from "./lib/helpers";
 
-const socket = new WebSocket(config.websocket_server);
+const websocketServer = findGetParameter("qi") || "198.18.0.1";
+const socket = new WebSocket(`ws://${websocketServer}:9527/ws`);
 
 const response = (type, data) => {
   if (socket.readyState === 1) {

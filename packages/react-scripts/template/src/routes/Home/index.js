@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Wizard from "../../components/Wizard";
 import { connect } from "react-redux";
 
 const Root = styled.div`
@@ -11,12 +10,12 @@ const Root = styled.div`
   width: 100vw;
   height: 100vh;
   background: purple;
+  color: #FFF;
 `;
 
 const Home = ({ nui_status, status_text }) => (
   <Root>
     <h1> Hello, I 'm Pepper!</h1>
-    <Wizard spinning={nui_status !== "idle"} text={status_text} />
   </Root>
 );
 

@@ -3,42 +3,100 @@ import { routerReducer } from "react-router-redux";
 
 import { actionTypes } from "./actions";
 
-const textReducer = (state = {}, action) => {
+const textReducer = (
+  state = {
+    content: "PTC provides other benefits as well. Programs that utilize PTC can see a reduced memory footprint because the garbage collector will be more likely to collect certain local objects. "
+  },
+  action
+) => {
   if (action.type === actionTypes.TEXT) return { ...state, ...action.payload };
   return state;
 };
 
-const listReducer = (state = { items: [] }, action) => {
+const listReducer = (
+  state = {
+    items: ["product1", "product2", "product3"],
+    title: "List"
+  },
+  action
+) => {
   if (action.type === actionTypes.LIST) return { ...state, ...action.payload };
   return state;
 };
 
-const selectReducer = (state = { items: [] }, action) => {
+const selectReducer = (
+  state = {
+    items: [
+      { text: "product1", event: "product1" },
+      { text: "product2", event: "product2" },
+      { text: "product3", event: "product3" }
+    ],
+    title: "Select one"
+  },
+  action
+) => {
   if (action.type === actionTypes.SELECT)
     return { ...state, ...action.payload };
   return state;
 };
 
-const fullscreenImageReducer = (state = {}, action) => {
+const fullscreenImageReducer = (
+  state = { image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg" },
+  action
+) => {
   if (action.type === actionTypes.FULLSCREEN_IMAGE)
     return { ...state, ...action.payload };
   return state;
 };
 
-const fullscreenMenuReducer = (state = { items: [] }, action) => {
+const fullscreenMenuReducer = (
+  state = {
+    items: [
+      {
+        text: "fun1",
+        image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg"
+      },
+      {
+        text: "fun1",
+        image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg"
+      },
+      {
+        text: "fun1",
+        image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg"
+      }
+    ]
+  },
+  action
+) => {
   if (action.type === actionTypes.FULLSCREEN_MENU)
     return { ...state, ...action.payload };
   return state;
 };
 
-const fullscreenSelectReducer = (state = { items: [] }, action) => {
+const fullscreenSelectReducer = (
+  state = {
+    items: [
+      { text: "option", event: "e" },
+      { text: "option", event: "e" },
+      { text: "option", event: "e" },
+      { text: "option", event: "e" }
+    ],
+    title: "Please select"
+  },
+  action
+) => {
   if (action.type === actionTypes.FULLSCREEN_SELECT)
     return { ...state, ...action.payload };
   return state;
 };
 
 const systemReducer = (
-  state = { battery: 100, wifi: 5, nui_status: "idle" },
+  state = {
+    battery: 90,
+    wifi: 3,
+    nui_status: "idle",
+    status_text: "I'm listening"
+  },
   action
 ) => {
   if (action.type === actionTypes.PHYSICAL_STATE)
