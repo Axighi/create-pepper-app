@@ -39,7 +39,7 @@ const Select = ({ title, items }) => (
       <p>{title}</p>
       <ul>
         {items.map((e, i) => (
-          <li key={i} onClick={handleClick(event)}>
+          <li key={i} onClick={handleClick(e.event)}>
             {e.text}
           </li>
         ))}
