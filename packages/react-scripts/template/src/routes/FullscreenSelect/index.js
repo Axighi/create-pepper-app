@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import s from "styled-components";
+import styled from "styled-components";
 
 import Fullscreen from "../../components/Fullscreen";
 import { responseServer } from "../../dispatcher";
 
-const Root = s(Fullscreen)`
+const Root = styled(Fullscreen)`
   flex-direction: column;
 
   & h1 {
@@ -14,24 +14,29 @@ const Root = s(Fullscreen)`
   }
 `;
 
-const Items = s.div`
+const Items = styled.div`
   font-size: 25px;
   font-weight: lighter;
   letter-spacing: 2px;
   line-height: 40px;
   padding: 10px;
   color: #FFF;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 65vh;
+  text-align: center;
+  width: 80%;
 `;
 
-const Item = s.div`
+const Item = styled.div`
   height: 50px;
-  width: 100%;
   background: linear-gradient(to right, #887bd3, #ba7cd3);
   border-radius: 10px;
   line-height: 50px;
-  margin: 16px 0;
+  margin: 16px;
   box-shadow: 0 10px 15px rgba(232, 106, 76, .85);
-  padding-left: 20px;
 `;
 
 const handleClick = event => () => responseServer({ event });
