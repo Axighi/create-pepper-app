@@ -9,6 +9,10 @@ export function findGetParameter(parameterName) {
   return result;
 }
 
+// usage:
+// const images = requireAll(require.context("./assets", false, /\.png$/));
+// <img src={images[img_name]} />
+
 export function requireAll(requireContext) {
   const ret = {};
   requireContext.keys().forEach(k => {
