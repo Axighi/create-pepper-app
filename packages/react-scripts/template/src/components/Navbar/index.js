@@ -82,8 +82,8 @@ const Link = styled.div`
 `;
 
 const MiddleLink = styled(Link)`
-  border-left: 1px solid #eff3fb;
-  border-right: 1px solid #eff3fb;
+  border-left: 0.0625rem solid #eff3fb;
+  border-right: 0.0625rem solid #eff3fb;
 `;
 
 class Navbar extends React.Component {

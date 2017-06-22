@@ -1,3 +1,6 @@
+html {
+  font-size: 16px;
+}
 body {
   margin: 0;
   padding: 0;
@@ -7,4 +10,10 @@ body {
 * {
   min-height: 0;
   min-width: 0;
+}
+
+@media (max-width: 1707px) and (min-width: 963px) {
+  html {
+    font-size: 28.4px;
+  }
 }

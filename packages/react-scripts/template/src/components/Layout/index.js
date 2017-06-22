@@ -1,23 +1,25 @@
 import React from "react";
-import s from "styled-components";
+import styled from "styled-components";
 import { connect } from "react-redux";
 
-import Header from "..//Header";
-import Wizard from "..//Wizard";
-import Fullscreen from "..//Fullscreen";
+import Header from "../Header";
+import Wizard from "../Wizard";
+import Fullscreen from "../Fullscreen";
+import Navbar from "../Navbar";
 
-const Root = s(Fullscreen)`
+const Root = styled(Fullscreen)`
   flex-direction: column;
   justify-content: space-around;
+  height: 80vh;
 `;
 
-const Content = s.div`
+const Content = styled.div`
   width: 50%;
   font-size: 1.5rem;
   color: #FFF;
 `;
 
-const Main = s.div`
+const Main = styled.div`
   flex: 1;
   display: flex;
   justify-content: space-around;
@@ -37,6 +39,7 @@ function Layout({ children, status_text, nui_status, battery, wifi }) {
           {children}
         </Content>
       </Main>
+      <Navbar />
     </Root>
   );
 }

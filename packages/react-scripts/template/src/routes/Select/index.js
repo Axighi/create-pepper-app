@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import s from "styled-components";
+import styled from "styled-components";
 
 import { responseServer } from "../../dispatcher";
 
-const Content = s.div`
-  font-size: 25px;
+const Content = styled.div`
+  font-size: 1.5rem;
   font-weight: lighter;
-  letter-spacing: 2px;
-  line-height: 50px;
-  padding: 45px 20px;
+  letter-spacing: 0.125rem;
+  line-height: 3.125rem;
+  padding: 2.8125rem 1.25rem;
 
   & p {
     margin: 0;
@@ -21,31 +21,30 @@ const Content = s.div`
   }
 
   & li {
-    height: 66px;
+    height: 4.125rem;
     width: 100%;
     background: linear-gradient(to right, #887bd3, #ba7cd3);
-    border-radius: 10px;
-    line-height: 64px;
-    margin: 10px 0;
-    padding-left: 20px;
+    border-radius: 0.625rem;
+    line-height: 4rem;
+    margin: 0.625rem 0;
+    padding-left: 1.25rem;
   }
 `;
 
 const handleClick = event => () => responseServer({ event });
 
-const Select = ({ title, items }) => (
+const Select = ({ title, items }) =>
   <div>
     <Content>
       <p>{title}</p>
       <ul>
-        {items.map((e, i) => (
+        {items.map((e, i) =>
           <li key={i} onClick={handleClick(e.event)}>
             {e.text}
           </li>
-        ))}
+        )}
       </ul>
     </Content>
-  </div>
-);
+  </div>;
 
 export default connect(state => state.select)(Select);

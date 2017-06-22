@@ -5,7 +5,8 @@ import { actionTypes } from "./actions";
 
 const textReducer = (
   state = {
-    content: "PTC provides other benefits as well. Programs that utilize PTC can see a reduced memory footprint because the garbage collector will be more likely to collect certain local objects. "
+    content:
+      "PTC provides other benefits as well. Programs that utilize PTC can see a reduced memory footprint because the garbage collector will be more likely to collect certain local objects. "
   },
   action
 ) => {
@@ -54,15 +55,18 @@ const fullscreenMenuReducer = (
     items: [
       {
         text: "fun1",
-        image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg"
+        image_url:
+          "http://img.qq1234.org/uploads/allimg/150403/0942003054-0-lp.jpg"
       },
       {
-        text: "fun1",
-        image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg"
+        text: "fun2",
+        image_url:
+          "http://www.uuwtq.com/file/image/tx/0w2757779861u1989855563t21.jpg"
       },
       {
-        text: "fun1",
-        image_url: "http://cdn4.pitchfork.com/news/65135/2ff87515.jpg"
+        text: "fun3",
+        image_url:
+          "http://mvavatar2.meitudata.com/57dbaf481d6332723.jpg!thumb160"
       }
     ]
   },

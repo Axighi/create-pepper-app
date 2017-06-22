@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 
 import { requireAll } from "../../lib/helpers";
+import bg from "./assets/background.png";
 
 const weatherIcons = requireAll(require.context("./assets/", true, /\.png$/));
 const dict = {
@@ -22,7 +23,9 @@ const Root = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
+  background: url(${bg}) no-repeat;
+  background-size: cover;
 `;
 
 const Card = styled.div`

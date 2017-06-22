@@ -17,7 +17,6 @@ import FullscreenImage from "./routes/FullscreenImage";
 import FullscreenSelect from "./routes/FullscreenSelect";
 import FullscreenMenu from "./routes/FullscreenMenu";
 import Weather from "./routes/Weather";
-import Navbar from "./components/Navbar";
 
 // command center start working!
 import "./dispatcher";
@@ -74,7 +73,6 @@ ReactDOM.render(
             component={route.component}
           />
         )}
-        <Navbar />
       </div>
     </ConnectedRouter>
   </Provider>,

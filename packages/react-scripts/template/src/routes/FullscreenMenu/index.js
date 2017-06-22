@@ -7,6 +7,7 @@ import { responseServer } from "../../dispatcher";
 
 const Root = styled(Fullscreen)`
   justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 const MenuItem = styled.div`
@@ -14,18 +15,18 @@ const MenuItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  padding: 10px;
+  margin: 1rem;
+  min-width: 15rem;
+  max-width: 20vw;
+  max-height: 35vh;
 
   & img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
   }
 
   & button {
     color: #fff;
-    font-size: 36px;
+    font-size: 2.25rem
   }
 `;
 
