@@ -9,12 +9,12 @@ const Root = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 65px;
+  height: 4rem;
   width: 90%;
   color: #FFF;
   margin: auto;
   border-bottom: 1px solid #FFF;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: lighter;
 `;
 
@@ -23,7 +23,7 @@ const Logo = styled.div`
   algin-item: center;
 
   & span {
-    margin-left: 10px;
+    margin-left: 0.625rem;
   }
 `;
 

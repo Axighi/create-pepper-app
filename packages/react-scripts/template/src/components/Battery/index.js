@@ -8,15 +8,14 @@ const Root = styled.div`
   algin-item: center;
 
   & img {
-    margin-left: 5px;
+    margin-left: 0.3rem;
   }
 `;
 
-const Battery = ({ rest = 100 }) => (
+const Battery = ({ rest = 100 }) =>
   <Root>
     <span>{`${rest}%`}</span>
     <img src={batteryIcon} alt="battery" />
-  </Root>
-);
+  </Root>;
 
 export default Battery;

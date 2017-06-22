@@ -13,7 +13,7 @@ const Root = s(Fullscreen)`
 
 const Content = s.div`
   width: 50%;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #FFF;
 `;
 

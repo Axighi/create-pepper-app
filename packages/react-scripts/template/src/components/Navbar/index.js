@@ -14,8 +14,8 @@ const Root = styled.div`
   justifyContent: flex-end;
   flex: 1;
   color: #5f6683;
-  fontSize: 20px;
-  letterSpacing: 2px;
+  fontSize: 1.25rem;
+  letterSpacing: 0.125rem;
   fontWeight: lighter;
   position: fixed;
   width: 100vw;
@@ -27,15 +27,15 @@ const Handler = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 55px;
+  height: 3.44rem;
   background: url(${background}) no-repeat;
   position: absolute;
-  top: -55px;
+  top: 3.44rem;
   left: 0;
   width: 100vw;
 
   & img {
-    margin: auto 4px;
+    margin: auto 0.25rem;
   }
 `;
 
@@ -76,7 +76,7 @@ const Link = styled.div`
   flex: 1;
 
   & img {
-    margin: 5px auto;
+    margin: 0.3125rem auto;
   }
 `;
 
@@ -89,7 +89,7 @@ class Navbar extends React.Component {
   constructor() {
     super();
     this.state = {
-      showNave: false
+      showNave: true
     };
   }
 

@@ -108,29 +108,37 @@ const systemReducer = (
 
 const weatherReducer = (
   state = {
-    highlight: "2017-3-18",
+    highlight: "2017/3/18",
     days: [
       {
-        date: "2017-3-17",
+        date: "2017/3/17",
+        week: "星期三",
+        city: "北京",
         weather: "有雨",
         temp_high: 12,
         temp_low: 7
       },
       {
-        date: "2017-3-18",
-        weather: "雪",
+        date: "2017/3/18",
+        weather: "晴",
         temp_high: 22,
+        week: "星期三",
+        city: "北京",
         temp_low: 10
       },
       {
-        date: "2017-3-19",
+        date: "2017/3/19",
         weather: "霾",
+        week: "星期三",
+        city: "北京",
         temp_high: 7,
         temp_low: -2
       },
       {
-        date: "2017-3-20",
+        date: "2017/3/20",
         weather: "沙尘暴",
+        week: "星期三",
+        city: "北京",
         temp_high: 14,
         temp_low: 8
       }

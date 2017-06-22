@@ -20,6 +20,7 @@ const Root = styled.div`
   align-items: center;
   width: ${props => props.radius}px;
   height: ${props => props.radius}px;
+  transform: scale(${props => props.scale});
 `;
 
 const Text = styled.div`
@@ -29,9 +30,10 @@ const Text = styled.div`
   width: ${props => props.radius}px;
   height: ${props => props.radius}px;
   color: #747a92;
-  font-size: 28px;
+  font-size: 1.75rem;
   border-radius: 50%;
-  background: linear-gradient(#fff, ${({ ban }) => (ban ? "#ff8989" : "#ffbe69")});
+  background: linear-gradient(#fff, ${({ ban }) =>
+    ban ? "#ff8989" : "#ffbe69"});
 `;
 
 export default class Wizard extends React.Component {
@@ -42,6 +44,7 @@ export default class Wizard extends React.Component {
     this.r2 = this.r1 + 16;
     this.r3 = this.r2 + 2;
     this.getR2ArcY = R.partial(getArcY, [this.r3, this.r3, this.r2]);
+    this.state = { scale: 1 };
   }
 
   static defaultProps = {
@@ -49,10 +52,18 @@ export default class Wizard extends React.Component {
     spinning: false
   };
 
+  componentDidMount() {
+    this.setState(() => ({ scale: window.innerWidth / 962 }));
+  }
+
   render() {
     const { r0, r1, r2, r3 } = this;
     return (
-      <Root radius={this.r3 * 2} className={this.props.className}>
+      <Root
+        radius={this.r3 * 2}
+        scale={this.state.scale}
+        className={this.props.className}
+      >
         <div style={{ position: "absolute", top: 0, left: 0 }}>
           <svg
             width={r3 * 2}
@@ -74,13 +85,19 @@ export default class Wizard extends React.Component {
                   repeatCount="indefinite"
                 />}
               <path
-                d={`M ${40} ${this.getR2ArcY(40).big} A ${r2} ${r2} 0 0 0 ${260} ${this.getR2ArcY(260).big}`}
+                d={`M ${40} ${this.getR2ArcY(40)
+                  .big} A ${r2} ${r2} 0 0 0 ${260} ${this.getR2ArcY(260).big}`}
               />
               <path
-                d={`M ${100} ${this.getR2ArcY(100).small} A ${r2} ${r2} 0 0 0 ${r3 - r2} ${this.getR2ArcY(r3 - r2).small}`}
+                d={`M ${100} ${this.getR2ArcY(100)
+                  .small} A ${r2} ${r2} 0 0 0 ${r3 - r2} ${this.getR2ArcY(
+                  r3 - r2
+                ).small}`}
               />
               <path
-                d={`M ${r3 + r2} ${this.getR2ArcY(r3 + r2).big} A ${r2} ${r2} 0 0 0 ${216} ${this.getR2ArcY(216).small}`}
+                d={`M ${r3 + r2} ${this.getR2ArcY(r3 + r2)
+                  .big} A ${r2} ${r2} 0 0 0 ${216} ${this.getR2ArcY(216)
+                  .small}`}
               />
             </g>
           </svg>
