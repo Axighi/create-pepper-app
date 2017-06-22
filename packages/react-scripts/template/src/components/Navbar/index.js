@@ -21,6 +21,7 @@ const Root = styled.div`
   width: 100vw;
   bottom: 0;
   z-index: 10;
+  height: 20vh;
 `;
 
 const Handler = styled.div`

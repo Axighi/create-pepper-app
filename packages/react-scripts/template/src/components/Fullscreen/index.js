@@ -7,9 +7,9 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 85vh;
+  height: 80vh;
   background: url('${bg}') no-repeat;
-  background-size: contain;
+  background-size: cover;
 `;
 
 const Fullscreen = Root;
